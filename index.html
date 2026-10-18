@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ערכת חיבור לספקים · חוסכים ביחד</title>
+<meta name="description" content="דף אחד למנהלי ספקים: לקוחות מאושרים, תשלום רק על הפעלה, שלוש רמות חיבור ופתיחה ביום אחד. מסמך לדיון, שמות ומספרים בדויים.">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f5f5f7; --bg-2:#ffffff; --card:rgba(255,255,255,.82); --fill:rgba(118,118,128,.12); --fill-2:rgba(118,118,128,.07);
+  --hair:rgba(0,0,0,.08); --hair-2:rgba(0,0,0,.14);
+  --text:#1d1d1f; --text-2:#6e6e73; --text-3:#86868b;
+  --accent:#0071e3; --accent-ink:#0066cc; --accent-soft:rgba(0,113,227,.10);
+  --green:#34c759; --green-ink:#1f8a3c; --green-soft:rgba(52,199,89,.14);
+  --orange:#ff9f0a; --orange-ink:#b25e00; --orange-soft:rgba(255,159,10,.16);
+  --purple:#8e44ec; --purple-soft:rgba(142,68,236,.12);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 2px 8px rgba(0,0,0,.04);
+  --shadow:0 2px 6px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.07);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.08),0 32px 80px rgba(0,0,0,.12);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","SF Hebrew",system-ui,"Heebo","Segoe UI",Arial,sans-serif;
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.47;letter-spacing:-.005em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{display:block}
+a{color:var(--accent-ink);text-decoration:none}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:24px}
+.center{text-align:center}
+.muted{color:var(--text-2)}
+.eyebrow{font-size:15px;font-weight:600;color:var(--accent-ink);margin:0 0 10px}
+.h1{font-size:clamp(40px,6.4vw,72px);line-height:1.04;font-weight:700;letter-spacing:-.02em;margin:0}
+.h2{font-size:clamp(30px,4vw,46px);line-height:1.1;font-weight:700;letter-spacing:-.015em;margin:0}
+.h3{font-size:21px;line-height:1.25;font-weight:700;margin:0}
+.lede{font-size:clamp(19px,2vw,23px);line-height:1.42;color:var(--text-2);margin:18px 0 0;max-width:34em}
+.center .lede{margin-inline:auto}
+.grad{background:linear-gradient(100deg,#0a84ff 0%,#30d158 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section{padding-block:96px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:980px;font-weight:600;font-size:17px;border:0;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(0,113,227,.32)}
+.btn-tint{background:var(--accent-soft);color:var(--accent-ink)}
+.btn svg{width:18px;height:18px}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:28px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 11px;border-radius:980px;white-space:nowrap}
+.pill-green{background:var(--green-soft);color:var(--green-ink)}
+.pill-blue{background:var(--accent-soft);color:var(--accent-ink)}
+.pill-orange{background:var(--orange-soft);color:var(--orange-ink)}
+.pill-gray{background:var(--fill);color:var(--text-2)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(251,251,253,.78);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hair)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px;color:var(--text)}
+.brand-mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(140deg,#0a84ff,#30d158);display:grid;place-items:center;box-shadow:0 2px 8px rgba(10,132,255,.35)}
+.brand-mark svg{width:16px;height:16px}
+.nav-tag{font-size:14px;color:var(--text-2);display:flex;gap:10px;align-items:center}
+
+/* hero */
+.hero{position:relative;padding:84px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:720px;background:radial-gradient(42% 52% at 78% 30%,rgba(0,113,227,.13),transparent 70%),radial-gradient(36% 46% at 18% 40%,rgba(52,199,89,.12),transparent 70%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-points{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap;color:var(--text-2);font-size:15px}
+.hero-points span{display:flex;align-items:center;gap:7px}
+.hero-points svg{width:18px;height:18px;color:var(--green)}
+
+.order-wrap{position:relative;padding:70px 10px 74px}
+.order{background:#fff;border-radius:30px;box-shadow:var(--shadow-lg);border:1px solid var(--hair);padding:26px 26px 22px;max-width:420px;margin-inline:auto}
+.order-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.order-top .t{font-size:13px;color:var(--text-3);font-weight:600}
+.order-plan{display:flex;gap:14px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--hair)}
+.op-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(150deg,#5ac8fa,#0071e3);color:#fff;font-weight:700;font-size:22px;display:grid;place-items:center;flex:none}
+.op-name{font-weight:700;font-size:18px}
+.op-sub{color:var(--text-2);font-size:14px}
+.op-price{margin-inline-start:auto;text-align:left}
+.op-price b{font-size:26px;letter-spacing:-.02em}
+.op-price small{display:block;color:var(--text-3);font-size:12px}
+.checks{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:11px}
+.checks li{display:flex;gap:11px;align-items:center;font-size:15px}
+.ck{width:22px;height:22px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none}
+.ck svg{width:12px;height:12px;color:#fff}
+.ck.lock{background:var(--orange)}
+.order-foot{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--hair)}
+.order-foot .who{font-size:14px;color:var(--text-2)}
+.chip{position:absolute;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--hair);box-shadow:var(--shadow);border-radius:18px;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:14px;white-space:nowrap}
+.chip b{display:block;font-size:14px}
+.chip span{color:var(--text-2);font-size:12.5px}
+.chip .ci{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex:none}
+.chip .ci svg{width:17px;height:17px;color:#fff}
+.chip-a{top:20px;left:-22px}
+.chip-b{bottom:22px;right:-30px}
+
+/* value */
+.vgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:48px}
+.vcard{padding:26px 24px}
+.vic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px}
+.vic svg{width:22px;height:22px}
+.vcard p{margin:8px 0 0;color:var(--text-2);font-size:15.5px;line-height:1.5}
+
+/* ladder */
+.ladder-sec{background:var(--bg-2);border-block:1px solid var(--hair)}
+.ladder{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:64px;align-items:start}
+.axis{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-top:30px;font-size:14px;font-weight:600;color:var(--text-2)}
+.axis .bar{height:6px;border-radius:6px;background:linear-gradient(to left,#30d158,#0a84ff 50%,#bf5af2);position:relative}
+.axis .bar::after{content:"";position:absolute;left:-2px;top:50%;width:12px;height:12px;border-top:3px solid #bf5af2;border-left:3px solid #bf5af2;transform:translateY(-50%) rotate(-45deg);border-radius:2px}
+.step{position:relative;border-radius:var(--r-lg);padding:28px 26px 26px;border:1px solid var(--hair);background:#fff;box-shadow:var(--shadow)}
+.step-0{margin-top:150px}
+.step-1{margin-top:75px}
+.step::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:var(--c)}
+.step-0{--c:linear-gradient(90deg,#30d158,#34c759);--ink:var(--green-ink);--soft:var(--green-soft)}
+.step-1{--c:linear-gradient(90deg,#0a84ff,#5ac8fa);--ink:var(--accent-ink);--soft:var(--accent-soft)}
+.step-2{--c:linear-gradient(90deg,#8e44ec,#bf5af2);--ink:#7a32d6;--soft:var(--purple-soft)}
+.step-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.lvl{font-size:13px;font-weight:700;color:var(--ink);background:var(--soft);border-radius:980px;padding:5px 11px}
+.time{text-align:left}
+.time b{display:block;font-size:30px;letter-spacing:-.02em;line-height:1}
+.time span{font-size:12.5px;color:var(--text-3)}
+.step .h3{margin-top:18px}
+.step .tag{color:var(--text-2);font-size:15px;margin-top:4px}
+.step ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.step li{display:flex;gap:10px;font-size:15px;line-height:1.45}
+.step li i{font-style:normal;flex:none;width:58px;font-size:12.5px;font-weight:700;color:var(--ink);padding-top:2px}
+.gets{margin-top:18px;padding:13px 14px;border-radius:14px;background:var(--soft);font-size:14.5px;line-height:1.45}
+.gets b{color:var(--ink)}
+.start-here{position:absolute;top:-40px;right:22px;display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--green-ink)}
+.start-here svg{width:18px;height:18px}
+.ladder-note{display:flex;justify-content:center;gap:28px;margin-top:34px;color:var(--text-2);font-size:15px;flex-wrap:wrap}
+.ladder-note span{display:flex;gap:8px;align-items:center}
+.ladder-note svg{width:18px;height:18px;color:var(--accent)}
+
+/* day one */
+.day{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:48px;align-items:stretch}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;top:26px;bottom:26px;right:77px;width:2px;background:linear-gradient(var(--green),var(--accent));border-radius:2px;opacity:.5}
+.tl li{display:grid;grid-template-columns:52px 24px 1fr;gap:14px;align-items:start;padding:12px 0}
+.tl .hr{font-weight:700;font-size:15px;color:var(--text-2);padding-top:3px;text-align:left}
+.tl .dot{width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--accent);position:relative;z-index:1;margin-top:1px}
+.tl li:last-child .dot{background:var(--green);border-color:var(--green)}
+.tl b{display:block;font-size:17px}
+.tl span{color:var(--text-2);font-size:15px}
+.need h4{margin:0 0 14px;font-size:17px}
+.need ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.need li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.need li .n{width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.need .no{margin-top:20px;padding-top:18px;border-top:1px solid var(--hair);font-size:15px;color:var(--text-2)}
+.need .no b{color:var(--text)}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:48px;position:relative}
+.fstep{text-align:center;padding:0 6px;position:relative}
+.fstep .fi{width:60px;height:60px;border-radius:18px;margin:0 auto 16px;display:grid;place-items:center;background:#fff;border:1px solid var(--hair);box-shadow:var(--shadow-sm);position:relative;z-index:1}
+.fstep .fi svg{width:26px;height:26px}
+.fstep b{display:block;font-size:16.5px}
+.fstep span{display:block;color:var(--text-2);font-size:14px;margin-top:6px;line-height:1.45}
+.fstep.provider .fi{background:var(--orange-soft);border-color:transparent}
+.flow::before{content:"";position:absolute;top:30px;right:10%;left:10%;height:2px;background:repeating-linear-gradient(to left,var(--hair-2) 0 6px,transparent 6px 12px)}
+.flow-key{display:flex;justify-content:center;gap:18px;margin-top:30px;font-size:14px;color:var(--text-2)}
+.flow-key span{display:flex;align-items:center;gap:7px}
+.flow-key i{width:12px;height:12px;border-radius:4px;display:inline-block}
+
+/* commercial */
+.money{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;margin-top:48px;overflow:hidden;padding:0}
+.money-hero{padding:40px 36px;background:linear-gradient(160deg,#0a84ff 0%,#1fb36b 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.money-hero .big{font-size:76px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.money-hero .lbl{font-size:19px;font-weight:600;margin-top:8px}
+.money-hero p{margin:0;font-size:15.5px;line-height:1.5;opacity:.92}
+.money-rows{padding:14px 36px}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--hair)}
+.mrow:last-child{border-bottom:0}
+.mrow b{display:block;font-size:17px}
+.mrow span{color:var(--text-2);font-size:14.5px}
+.mrow .v{font-weight:700;font-size:17px;text-align:left;white-space:nowrap}
+.mrow .v small{display:block;font-weight:500;font-size:12px;color:var(--text-3)}
+.disclose{display:flex;gap:16px;align-items:flex-start;margin-top:20px;padding:20px 24px}
+.disclose .vic{margin:0;flex:none}
+.disclose p{margin:4px 0 0;color:var(--text-2);font-size:15.5px}
+
+/* trust */
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:48px}
+.tcard{padding:26px 24px}
+.tcard p{margin:8px 0 0;color:var(--text-2);font-size:15px;line-height:1.5}
+.tcard.key{background:linear-gradient(180deg,#fffaf2,#fff);border-color:rgba(255,159,10,.35)}
+.otp-demo{margin-top:16px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-2);flex-wrap:wrap}
+.otp-demo .node{padding:5px 10px;border-radius:9px;background:var(--fill-2);font-weight:600;color:var(--text)}
+.otp-demo .node.x{text-decoration:line-through;color:var(--text-3)}
+.otp-demo svg{width:14px;height:14px;color:var(--orange)}
+
+/* cta */
+.final{padding:88px 0 40px}
+.final-card{text-align:center;padding:60px 32px;background:radial-gradient(60% 90% at 50% 0%,rgba(0,113,227,.10),transparent 70%),#fff}
+.weeks{display:flex;justify-content:center;gap:10px;margin:30px 0 32px;flex-wrap:wrap}
+.wk{padding:12px 18px;border-radius:16px;background:var(--fill-2);text-align:right;min-width:150px}
+.wk b{display:block;font-size:13px;color:var(--text-3)}
+.wk span{font-weight:600;font-size:15.5px}
+.wk.hl{background:var(--green-soft)}
+.wk.hl2{background:var(--accent-soft)}
+footer{padding:28px 0 56px;color:var(--text-3);font-size:13px;text-align:center;line-height:1.6}
+
+@media (max-width:980px){
+  .hero-grid,.day,.money{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ladder{grid-template-columns:1fr;gap:16px}
+  .step-0,.step-1{margin-top:0}
+  .start-here,.axis{display:none}
+  .flow{grid-template-columns:1fr;gap:18px}
+  .flow::before{display:none}
+  .fstep{display:grid;grid-template-columns:60px 1fr;gap:16px;text-align:right;align-items:center}
+  .fstep .fi{margin:0}
+  .fstep span{margin-top:2px}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:16px}
+  .section{padding-block:64px}
+  .hero{padding-top:48px}
+  .vgrid,.tgrid{grid-template-columns:1fr}
+  .chip-a{left:0;top:-14px}.chip-b{right:0;bottom:-14px}
+  .nav-tag .pill{display:none}
+  .money-hero,.money-rows{padding-inline:22px}
+  .money-hero .big{font-size:60px}
+}
+@media print{.nav{position:static}.hero::before{display:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span>חוסכים ביחד</a>
+    <div class="nav-tag"><span>ערכת חיבור לספקים</span><span class="pill pill-gray">טיוטה לדיון</span></div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">לספקי סלולר ותקשורת</p>
+      <h1 class="h1">לקוחות שכבר<br>אמרו <span class="grad">כן.</span></h1>
+      <p class="lede">חברי חוסכים ביחד בוחרים מסלול, רואים את כל התנאים ומאשרים. אליכם מגיעה הזמנה מוכנה וחתומה, ואתם משלמים רק על קו שהופעל.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#day-one">מתחילים מחר, ברמה 0
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10H4.5M9 5.5L4.5 10 9 14.5"/></svg></a>
+        <a class="btn btn-tint" href="#ladder">שלוש רמות החיבור</a>
+      </div>
+      <div class="hero-points">
+        <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>בלי פיתוח כדי להתחיל</span>
+        <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>האימות והתשלום נשארים אצלכם</span>
+        <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>בלי דמי הקמה בפיילוט</span>
+      </div>
+    </div>
+
+    <div class="order-wrap" aria-label="דוגמה בדויה להזמנה שמגיעה לספק">
+      <div class="order">
+        <div class="order-top"><span class="t">הזמנה חדשה · לפני 2 דק׳</span><span class="pill pill-green">מאושרת וחתומה</span></div>
+        <div class="order-plan">
+          <span class="op-ic">א</span>
+          <div><div class="op-name">אלפא מובייל</div><div class="op-sub">מסלול מועדון · 20GB · eSIM</div></div>
+          <div class="op-price"><b class="num">₪19.90</b><small>לחודש, דוגמה בדויה</small></div>
+        </div>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span>התנאים ומסמך הגילוי הוצגו לחבר</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span>המספר נבדק וניתן לניוד</li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.3l2.3 2.3 4.7-5"/></svg></span>העמלה שלנו הוצגה לפני האישור</li>
+          <li><span class="ck lock"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="7" height="5" rx="1.2"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg></span>קוד הניוד והתשלום: אצלכם בלבד</li>
+        </ul>
+        <div class="order-foot"><span class="who">דנה כ. · <span class="ltr">050-•••-0001</span></span><span class="pill pill-orange">ממתין לאימות שלכם</span></div>
+      </div>
+      <div class="chip chip-a"><span class="ci" style="background:linear-gradient(150deg,#34c759,#1f8a3c)"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5v15M14 5.5H8a2.5 2.5 0 000 5h4a2.5 2.5 0 010 5H5.5"/></svg></span><div><b>משלמים רק על הפעלה</b><span>הזמנה שלא הופעלה לא עולה כלום</span></div></div>
+      <div class="chip chip-b"><span class="ci" style="background:linear-gradient(150deg,#ff9f0a,#ff6a00)"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5l6 2.5v4.5c0 4-2.6 6.8-6 8-3.4-1.2-6-4-6-8V5z"/></svg></span><div><b>הקוד לא עובר דרכנו</b><span>נשלח מכם ישירות לחבר</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUE ================= -->
+<section class="section" style="padding-top:56px">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">למה ספקים מתחברים</p>
+      <h2 class="h2">גיוס לקוח זול יותר.<br>בלי מוקד, בלי שכנוע.</h2>
+    </div>
+    <div class="vgrid">
+      <div class="card vcard">
+        <div class="vic" style="background:var(--green-soft);color:var(--green-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9"/></svg></div>
+        <div class="h3">משלמים על תוצאה</div>
+        <p>עמלה רק על קו שהופעל ונשאר אחרי תקופת ההחזר. הזמנה שלא הופעלה לא עולה כלום.</p>
+      </div>
+      <div class="card vcard">
+        <div class="vic" style="background:var(--accent-soft);color:var(--accent-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13l2 2 4-4"/></svg></div>
+        <div class="h3">הזמנה, לא ליד קר</div>
+        <p>החבר כבר בחר מסלול, ראה את התנאים ואישר בחתימה. נשאר לכם לאמת ולהפעיל.</p>
+      </div>
+      <div class="card vcard">
+        <div class="vic" style="background:var(--orange-soft);color:var(--orange-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div>
+        <div class="h3">פחות ניודים שנכשלים</div>
+        <p>הפרטים נאספים ונבדקים לפני שההזמנה יוצאת. פחות אי-התאמות שמתגלות רק בשיחה.</p>
+      </div>
+      <div class="card vcard">
+        <div class="vic" style="background:var(--purple-soft);color:#7a32d6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.4.2 4.3 1.8 5 4.8"/></svg></div>
+        <div class="h3">נפח בלעדי</div>
+        <p>מבצעי קבוצה שמוצגים רק לחברי חוסכים ביחד, בלי לגעת במחירון הציבורי שלכם.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LADDER ================= -->
+<section class="section ladder-sec" id="ladder">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">שלוש רמות חיבור</p>
+      <h2 class="h2">מתחילים מהמדרגה התחתונה.</h2>
+      <p class="lede">כל רמה שומרת על אותו חוזה, אותם מזהי הזמנה ואותם סטטוסים. עולים מדרגה כשהנפח מצדיק, בלי לזרוק עבודה.</p>
+    </div>
+
+    <div class="ladder">
+
+      <article class="step step-0">
+        <div class="start-here"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>מתחילים כאן</div>
+        <div class="step-head"><span class="lvl">רמה 0</span><div class="time"><b>יום</b><span>להתחלה</span></div></div>
+        <div class="h3">בלי פיתוח</div>
+        <div class="tag">אנחנו מארחים עבורכם את הסוכן</div>
+        <ul>
+          <li><i>אתם נותנים</i><span>קישור הצטרפות או טופס, תנאי מסלול ומסמך גילוי</span></li>
+          <li><i>מקבלים</i><span>קישור ממולא, ליד חם במייל או קובץ יומי</span></li>
+          <li><i>אתם עושים</i><span>סוגרים כמו היום ומסמנים "הופעל" בפורטל קטן</span></li>
+        </ul>
+        <div class="gets"><b>למי זה מתאים:</b> כל ספק, כבר מחר. בלי מפתחים ובלי שינוי באתר.</div>
+      </article>
+
+      <article class="step step-1">
+        <div class="step-head"><span class="lvl">רמה 1</span><div class="time"><b class="ltr">1–2</b><span>שבועות · <span class="ltr">3–5</span> ימי פיתוח</span></div></div>
+        <div class="h3">Webhooks</div>
+        <div class="tag">הזמנות וסטטוסים בין המערכות</div>
+        <ul>
+          <li><i>אנחנו</i><span>שולחים הזמנה חתומה ישר ל-CRM שלכם</span></li>
+          <li><i>אתם</i><span>מחזירים סטטוס: נקלט, פעיל, בוטל</span></li>
+          <li><i>הבדיקה</i><span>ארגז חול ובדיקת תאימות אוטומטית</span></li>
+        </ul>
+        <div class="gets"><b>מה משתנה:</b> בלי קליקים בפורטל. סטטוס בזמן אמת ותשלום עמלה אוטומטי.</div>
+      </article>
+
+      <article class="step step-2">
+        <div class="step-head"><span class="lvl">רמה 2</span><div class="time"><b class="ltr">4–8</b><span>שבועות</span></div></div>
+        <div class="h3">Agent API מלא</div>
+        <div class="tag">הסוכן שלנו מדבר עם הסוכן שלכם</div>
+        <ul>
+          <li><i>אתם</i><span>חושפים מסלולים, בדיקת זכאות לניוד והזמנות</span></li>
+          <li><i>כל הזמנה</i><span>עם אסימון הסכמה חתום שאתם מאמתים בעצמכם</span></li>
+          <li><i>האימות</i><span>בדף שלכם, ומשם החבר חוזר לאפליקציה</span></li>
+        </ul>
+        <div class="gets"><b>מה משתנה:</b> מחירים וזכאות בזמן אמת, ופחות ניודים שנכשלים.</div>
+      </article>
+    </div>
+    <div class="axis" aria-hidden="true"><span>פחות מאמץ</span><span class="bar"></span><span>יותר אוטומציה, מהירות ונתונים</span></div>
+
+    <div class="ladder-note">
+      <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10H4M9 5l-5 5 5 5"/></svg>אותו חוזה בכל הרמות</span>
+      <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="13" height="12" rx="2.5"/><path d="M7 10l2 2 4-4"/></svg>בדיקת תאימות לפני כל מעבר רמה</span>
+      <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v14M3 10h14"/></svg>אפשר להישאר ברמה 0 כמה שרוצים</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAY ONE ================= -->
+<section class="section" id="day-one">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">רמה 0</p>
+      <h2 class="h2">מתחילים מחר. ביום אחד.</h2>
+      <p class="lede">בלי אינטגרציה ובלי מפתחים. אתם שולחים שלושה דברים, ואנחנו מקימים את השאר באותו יום.</p>
+    </div>
+    <div class="day">
+      <div class="card">
+        <ol class="tl">
+          <li><span class="hr num">09:00</span><span class="dot"></span><div><b>אתם שולחים קישור, תנאים ומסמך גילוי</b><span>שעתיים מהזמן שלכם, לכל היותר</span></div></li>
+          <li><span class="hr num">12:00</span><span class="dot"></span><div><b>אנחנו מקימים את הסוכן המתארח</b><span>המסלול, כרטיס ההסכמה ומשתמש בפורטל</span></div></li>
+          <li><span class="hr num">15:00</span><span class="dot"></span><div><b>הזמנת בדיקה עוברת מקצה לקצה</b><span>אתם רואים בדיוק מה יגיע אליכם</span></div></li>
+          <li><span class="hr">למחרת</span><span class="dot"></span><div><b>ההזמנות הראשונות מחברים אמיתיים</b><span>אתם סוגרים, מסמנים "הופעל" ומקבלים עמלה על הפעלה</span></div></li>
+        </ol>
+      </div>
+      <div class="card need">
+        <h4>מה צריך מכם</h4>
+        <ul>
+          <li><span class="n">1</span><span>קישור הצטרפות או טופס קיים, עם קוד שותף אם יש</span></li>
+          <li><span class="n">2</span><span>תנאי המסלול: מחיר, מחיר אחרי מבצע, נפח, עמלות, התחייבות</span></li>
+          <li><span class="n">3</span><span>מסמך הגילוי של המסלול, ואיש קשר שמציץ בפורטל פעם ביום</span></li>
+        </ul>
+        <div class="no"><b>ברמה 0 לא עוברת אליכם תעודת זהות או פרטי תשלום.</b> את אלה אתם אוספים בעצמכם, כמו היום.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLOW ================= -->
+<section class="section ladder-sec">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">איך הזמנה עוברת</p>
+      <h2 class="h2">אנחנו מכינים. החבר מאשר.<br>אתם מאמתים.</h2>
+    </div>
+    <div class="flow">
+      <div class="fstep"><div class="fi" style="color:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M9.5 12l2 2 3.5-4"/></svg></div><div><b>החבר מאשר</b><span>תנאים, חיסכון ועמלה גלויה. אישור בקוד של האפליקציה</span></div></div>
+      <div class="fstep"><div class="fi" style="color:var(--accent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div><div><b>ההזמנה אצלכם</b><span>חתומה, עם רשומת הסכמה. בקישור, בליד, ב-webhook או ב-API</span></div></div>
+      <div class="fstep provider"><div class="fi" style="color:var(--orange-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 018 0v2.5"/></svg></div><div><b>אתם מאמתים</b><span>קוד הניוד נשלח מכם ישירות לחבר. התשלום בדף שלכם</span></div></div>
+      <div class="fstep"><div class="fi" style="color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9"/></svg></div><div><b>הקו פעיל</b><span>הסטטוס חוזר אלינו, והחבר מקבל תזכורת על 14 ימי הביטול</span></div></div>
+      <div class="fstep"><div class="fi" style="color:var(--green-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M16.5 6.5H10a3 3 0 000 6h4a3 3 0 010 6H7"/></svg></div><div><b>עמלה</b><span>אחרי תקופת ההחזר. אותו סכום שהחבר ראה</span></div></div>
+    </div>
+    <div class="flow-key"><span><i style="background:#fff;border:1px solid var(--hair-2)"></i>חוסכים ביחד</span><span><i style="background:var(--orange-soft)"></i>אצלכם בלבד</span></div>
+  </div>
+</section>
+
+<!-- ================= COMMERCIAL ================= -->
+<section class="section" id="model">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">המודל המסחרי</p>
+      <h2 class="h2">משלמים על קו פעיל. זהו.</h2>
+    </div>
+    <div class="card money">
+      <div class="money-hero">
+        <div><div class="big num">₪0</div><div class="lbl">דמי הקמה בפיילוט</div></div>
+        <p>אין עלות כניסה ואין התחייבות לנפח. אם לא הופעלו קווים, לא שילמתם כלום.</p>
+      </div>
+      <div class="money-rows">
+        <div class="mrow"><div><b>עמלה לכל קו שהופעל (CPA)</b><span>נקבעת איתכם מראש, לכל מסלול</span></div><div class="v num">₪70<small>דוגמה בדויה</small></div></div>
+        <div class="mrow"><div><b>מתי משלמים</b><span>אחרי תקופת החזר מוסכמת</span></div><div class="v">90 יום<small>לדוגמה</small></div></div>
+        <div class="mrow"><div><b>לקוח עזב בתוך התקופה</b><span>העמלה מתקזזת אוטומטית</span></div><div class="v">₪0</div></div>
+        <div class="mrow"><div><b>הזמנה שלא הופעלה</b><span>כל סיבה: ניוד שנכשל, החבר התחרט</span></div><div class="v">₪0</div></div>
+        <div class="mrow"><div><b>בהמשך, אופציונלי</b><span>דמי אירוח חודשיים לסוכן המתארח, ברמות <span class="ltr">0–1</span></span></div><div class="v">לפי הסכם</div></div>
+      </div>
+    </div>
+    <div class="card disclose">
+      <div class="vic" style="background:var(--accent-soft);color:var(--accent-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg></div>
+      <div><b>שקיפות מלאה, לשני הצדדים</b><p>החבר רואה את סכום העמלה לפני שהוא מאשר. אותו סכום נשמר ברשומת ההסכמה החתומה ומופיע בדיווח ההפניה, כך שאתם ואנחנו יכולים לבדוק כל הזמנה. הדירוג לחבר נקבע לפי החיסכון שלו, וכל קידום בתשלום מסומן.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="section ladder-sec" id="trust">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow">אמון ורגולציה</p>
+      <h2 class="h2">הכללים בנויים לתוך התהליך.</h2>
+      <p class="lede">לא שכבה שמוסיפים בסוף. כל הזמנה עומדת בהם, בכל רמה.</p>
+    </div>
+    <div class="tgrid">
+      <div class="card tcard key">
+        <div class="vic" style="background:var(--orange-soft);color:var(--orange-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8-7 10-4-2-7-5.4-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg></div>
+        <div class="h3">קוד הניוד לא עובר דרכנו</div>
+        <p>הקוד נשלח מכם לטלפון של החבר ומוזן רק בדף שלכם. אין לנו שדה בשבילו, ובקשה שמכילה קוד נדחית.</p>
+        <div class="otp-demo"><span class="node">אתם</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 7H3M6 4L3 7l3 3"/></svg><span class="node">הטלפון של החבר</span><span class="node x">חוסכים ביחד</span></div>
+      </div>
+      <div class="card tcard">
+        <div class="vic" style="background:var(--accent-soft);color:var(--accent-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M8.5 15.5c1.5-2.5 2.5 1 4 -1s2 1 3 0"/></svg></div>
+        <div class="h3">הסכמה חתומה לכל הזמנה</div>
+        <p>מסלול, מחיר, מספר, טביעת מסמך הגילוי והעמלה, בחתימה דיגיטלית. אפשר לאמת ולייצא לכל הזמנה.</p>
+      </div>
+      <div class="card tcard">
+        <div class="vic" style="background:var(--green-soft);color:var(--green-ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></div>
+        <div class="h3">14 ימים לביטול</div>
+        <p>מוצג לחבר לפני האישור, עם תזכורת ביום 1 וביום 10. הביטול עובר אליכם כסטטוס או כקריאת API.</p>
+      </div>
+      <div class="card tcard">
+        <div class="vic" style="background:var(--purple-soft);color:#7a32d6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2a3 3 0 00-2.8-1.7c-1.7 0-2.8.9-2.8 2.2 0 3 5.6 1.6 5.6 4.6 0 1.3-1.2 2.2-2.8 2.2a3 3 0 01-2.9-1.8M12 6v1.5M12 16.5V18"/></svg></div>
+        <div class="h3">גילוי עמלה</div>
+        <p>לפי חוק השליחות: החבר יודע מי משלם לנו וכמה, לפני שהוא מאשר. זה לא משנה את המחיר שלו.</p>
+      </div>
+      <div class="card tcard">
+        <div class="vic" style="background:var(--fill);color:var(--text)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5"/></svg></div>
+        <div class="h3">פרטיות לפי תיקון 13</div>
+        <p>מינימום מידע: ברמה 0 לא עוברת תעודת זהות. הסכם עיבוד נתונים נחתם לפני העלייה לאוויר.</p>
+      </div>
+      <div class="card tcard">
+        <div class="vic" style="background:var(--fill);color:var(--text)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6.5 15h3"/></svg></div>
+        <div class="h3">התשלום אצלכם בלבד</div>
+        <p>כרטיס האשראי מוזן בדף המאובטח שלכם. אנחנו לא רואים אותו, ונשארים מחוץ לתחום PCI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final">
+  <div class="wrap">
+    <div class="card final-card">
+      <p class="eyebrow">הצעד הבא</p>
+      <h2 class="h2">פיילוט של 4 שבועות.<br>ספק אחד, מספרים אמיתיים.</h2>
+      <div class="weeks">
+        <div class="wk hl"><b>שבוע 1</b><span>עולים ברמה 0</span></div>
+        <div class="wk"><b>שבוע 2</b><span>נפח מלא, בונים רמה 1</span></div>
+        <div class="wk hl2"><b>שבוע 3</b><span>מעבר לרמה 1</span></div>
+        <div class="wk"><b>שבוע 4</b><span>התחשבנות והחלטה משותפת</span></div>
+      </div>
+      <a class="btn btn-primary" href="#top">לתאם שיחת היכרות</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">טיוטה לדיון. חוסכים ביחד, אלפא מובייל ובטא מובייל הם שמות בדויים.<br>כל המחירים, העמלות והזמנים בדף הם דוגמה להמחשה בלבד ואינם תנאי עסקה.</div>
+</footer>
+</body>
+</html>
